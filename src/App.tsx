@@ -9,6 +9,7 @@ import { Bodies, Composite, Engine, Mouse, MouseConstraint } from 'matter-js'
 gsap.registerPlugin(ScrollTrigger)
 
 const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`
 
 const projects = [
   {
@@ -17,7 +18,7 @@ const projects = [
     description: 'Premium nature-focused residences offering thoughtfully designed homes that blend timeless architecture, landscape, privacy, and sustainable living.',
     category: 'Luxury Real Estate',
     year: '2026',
-    image: '/projects/selected-work-02.png',
+    image: assetUrl('projects/selected-work-02.png'),
     color: '#F2D8C3',
     url: 'https://www.aevaliving.com/',
   },
@@ -27,7 +28,7 @@ const projects = [
     description: 'Philanthropic foundation supporting education, healthcare, sports, inclusivity, sanitation, and green spaces to create meaningful social impact.',
     category: 'Social Impact',
     year: '2025',
-    image: '/projects/selected-work-01.png',
+    image: assetUrl('projects/selected-work-01.png'),
     color: '#C7D8FC',
     url: 'https://vpcf.org/',
   },
@@ -37,7 +38,7 @@ const projects = [
     description: 'Indian spirits company producing whisky, vodka, beer, and other beverages while combining traditional craftsmanship with sustainable distilling practices.',
     category: 'Corporate Website',
     year: '2025',
-    image: '/projects/selected-work-04.png',
+    image: assetUrl('projects/selected-work-04.png'),
     color: '#F4DEB4',
     url: 'https://dev.khemani.bayalis.in/',
   },
@@ -47,7 +48,7 @@ const projects = [
     description: 'Digital solutions agency offering website development, content strategy, SEO, audits, app development, and online reputation management services.',
     category: 'Creative Studio',
     year: '2026',
-    image: '/projects/selected-work-07.png',
+    image: assetUrl('projects/selected-work-07.png'),
     color: '#A1E9DD',
     url: 'https://notyouridea.com/',
   },
@@ -57,7 +58,7 @@ const projects = [
     description: 'Strategic communications consultancy providing PR, digital, creative, advisory, reputation management, media relations, and crisis communication solutions.',
     category: 'Creative Agency',
     year: '2026',
-    image: '/projects/selected-work-05.png',
+    image: assetUrl('projects/selected-work-05.png'),
     color: '#FAD3D3',
     url: 'https://www.pitchforkpartners.com/',
   },
@@ -67,7 +68,7 @@ const projects = [
     description: 'Alcohol-focused digital platform offering beverage knowledge, cocktail content, drinking guides, trends, recommendations, and nightlife experiences.',
     category: 'Editorial Platform',
     year: '2026',
-    image: '/projects/selected-work-06.png',
+    image: assetUrl('projects/selected-work-06.png'),
     color: '#FBD2AD',
     url: 'https://unsobered.com/',
   },
@@ -77,7 +78,7 @@ const projects = [
     description: 'Independent policy research institution focusing on financial inclusion, social protection, customer protection, digital finance, and financial security.',
     category: 'Research Platform',
     year: '2025',
-    image: '/projects/selected-work-03.png',
+    image: assetUrl('projects/selected-work-03.png'),
     color: '#E9EFD0',
     url: 'https://dvararesearch.com/',
   },
@@ -123,16 +124,16 @@ const processSteps = [
 ]
 
 const tools = [
-  { name: 'Figma', artwork: '/tool-logos/Frame%202147227677.svg' },
-  { name: 'Framer', artwork: '/tool-logos/Frame%202147227678.svg' },
-  { name: 'ChatGPT', artwork: '/tool-logos/Frame%202147227679.svg' },
-  { name: 'Claude Code', artwork: '/tool-logos/Frame%202147227680.svg' },
-  { name: 'Miro', artwork: '/tool-logos/Frame%202147227681.svg' },
-  { name: 'Jitter', artwork: '/tool-logos/Frame%202147227682.svg' },
-  { name: 'Photoshop', artwork: '/tool-logos/Frame%202147227683.svg' },
-  { name: 'Gemini', artwork: '/tool-logos/Frame%202147227684.svg' },
-  { name: 'Relume', artwork: '/tool-logos/Frame%202147227685.svg' },
-  { name: 'Lovable', artwork: '/tool-logos/Frame%202147227686.svg' },
+  { name: 'Figma', artwork: assetUrl('tool-logos/Frame%202147227677.svg') },
+  { name: 'Framer', artwork: assetUrl('tool-logos/Frame%202147227678.svg') },
+  { name: 'ChatGPT', artwork: assetUrl('tool-logos/Frame%202147227679.svg') },
+  { name: 'Claude Code', artwork: assetUrl('tool-logos/Frame%202147227680.svg') },
+  { name: 'Miro', artwork: assetUrl('tool-logos/Frame%202147227681.svg') },
+  { name: 'Jitter', artwork: assetUrl('tool-logos/Frame%202147227682.svg') },
+  { name: 'Photoshop', artwork: assetUrl('tool-logos/Frame%202147227683.svg') },
+  { name: 'Gemini', artwork: assetUrl('tool-logos/Frame%202147227684.svg') },
+  { name: 'Relume', artwork: assetUrl('tool-logos/Frame%202147227685.svg') },
+  { name: 'Lovable', artwork: assetUrl('tool-logos/Frame%202147227686.svg') },
 ] as const
 
 function Navbar() {
@@ -153,7 +154,7 @@ function Navbar() {
         <a href="#process">PROCESS</a>
         <a href="#contact">CONTACT</a>
       </nav>
-      <a className="nav-resume" href="/Nikhil-Patil-Resume.pdf" download>DOWNLOAD RESUME <Download size={13} /></a>
+      <a className="nav-resume" href={assetUrl('Nikhil-Patil-Resume.pdf')} download>DOWNLOAD RESUME <Download size={13} /></a>
     </header>
   )
 }
@@ -525,7 +526,7 @@ function Contact() {
       </div>
       <footer>
         <span>© 2026 NIKHIL PATIL</span>
-        <div><a href="mailto:nikhilcpatil07@gmail.com">EMAIL</a><a href="https://www.linkedin.com/in/nikhil-patil-62a284256/" target="_blank" rel="noreferrer">LINKEDIN</a><a href="/Nikhil-Patil-Resume.pdf" target="_blank">RESUME</a></div>
+        <div><a href="mailto:nikhilcpatil07@gmail.com">EMAIL</a><a href="https://www.linkedin.com/in/nikhil-patil-62a284256/" target="_blank" rel="noreferrer">LINKEDIN</a><a href={assetUrl('Nikhil-Patil-Resume.pdf')} target="_blank">RESUME</a></div>
         <a href="#top">BACK TO TOP ↑</a>
       </footer>
     </section>
