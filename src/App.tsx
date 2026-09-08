@@ -154,7 +154,7 @@ function Navbar() {
         <a href="#process">PROCESS</a>
         <a href="#contact">CONTACT</a>
       </nav>
-      <a className="nav-resume" href={assetUrl('Nikhil-Patil-Resume.pdf')} download>DOWNLOAD RESUME <Download size={13} /></a>
+      <a className="nav-resume" href={assetUrl('UX_Resume.pdf')} download>DOWNLOAD RESUME <Download size={13} /></a>
     </header>
   )
 }
@@ -526,7 +526,7 @@ function Contact() {
       </div>
       <footer>
         <span>© 2026 NIKHIL PATIL</span>
-        <div><a href="mailto:nikhilcpatil07@gmail.com">EMAIL</a><a href="https://www.linkedin.com/in/nikhil-patil-62a284256/" target="_blank" rel="noreferrer">LINKEDIN</a><a href={assetUrl('Nikhil-Patil-Resume.pdf')} target="_blank">RESUME</a></div>
+        <div><a href="mailto:nikhilcpatil07@gmail.com">EMAIL</a><a href="https://www.linkedin.com/in/nikhil-patil-62a284256/" target="_blank" rel="noreferrer">LINKEDIN</a><a href={assetUrl('UX_Resume.pdf')} target="_blank">RESUME</a></div>
         <a href="#top">BACK TO TOP ↑</a>
       </footer>
     </section>
