@@ -54,7 +54,7 @@ button, a { cursor: none; }
 }
 .navbar.is-compact { height: 60px; background: rgba(241,239,232,.88); backdrop-filter: blur(14px); border-color: rgba(16,16,15,.1); }
 .wordmark { justify-self: start; font-size: 17px; letter-spacing: -.03em; }
-.wordmark span { color: var(--orange); }
+.wordmark span { color: #6436EB; }
 .nav-clock { display: flex; align-items: center; gap: 8px; font-size: 9px; letter-spacing: .12em; }
 .status-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 3px rgba(238,98,56,.12); }
 .navbar nav { justify-self: center; display: flex; gap: 30px; }
@@ -259,12 +259,16 @@ footer a:hover { opacity: .5; }
   .work h2, .tools h2 { margin: 25px 0 80px; font-size: clamp(36px, 10.2vw, 48px); }
   .work-stage { height: auto; min-height: 0; }
   .work-cards { gap: 32px; padding: 16px 14px 95px; }
-  .work-card { height: max(calc(100svh - 96px), 584px); min-height: 584px; max-height: none; block-size: max(calc(100svh - 96px), 584px); min-block-size: 584px; max-block-size: none; grid-template-columns: 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  .work-card { height: auto; min-height: max(calc(100svh - 96px), 584px); max-height: none; block-size: auto; min-block-size: max(calc(100svh - 96px), 584px); max-block-size: none; grid-template-columns: 1fr; grid-template-rows: auto minmax(240px, 1fr); }
   .work-card { top: 12vh; }
   .work-card-copy { padding: 9vh 52px 24px 28px; justify-content: flex-start; }
   .work-project-number { margin-bottom: 16px; font-size: 12px; }
-  .work-card h3 { max-width: 11ch; margin-bottom: 15px; font-size: clamp(36px, 9.6vw, 48px); }
-  .work-card p { max-width: 94%; font-size: 14px; line-height: 1.42; }
+  .work-card h3 { max-width: 11ch; margin-bottom: 0; font-size: clamp(36px, 9.6vw, 48px); }
+  .work-card-copy > .work-copy-mask { flex-shrink: 0; overflow: visible; }
+  .work-card-copy > .work-copy-mask:first-of-type { margin-bottom: 24px; }
+  .work-copy-mask.is-multiline-title { flex-shrink: 0; }
+  .work-copy-mask.is-multiline-title h3 { line-height: 1.05; }
+  .work-card p { max-width: 94%; font-size: 14px; line-height: 1.5; }
   .case-link { margin-top: 22px; font-size: 10px; }
   .work-panel-meta { position: static; margin-top: auto; font-size: 7px; }
   .work-media { margin: 0; padding: 6px 28px 6px 0; }

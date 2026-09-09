@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`
+const imageVariant = (src: string, width: number) => src.replace('.png', `-${width}.webp`)
 
 const projects = [
   {
@@ -220,13 +221,21 @@ function Project({ project, index }: { project: typeof projects[number], index: 
     >
       <div className="work-card-copy">
         <span className="work-project-number">PROJECT / {project.number}</span>
-        <div className="work-copy-mask"><h3>{project.name}</h3></div>
+        <div className={`work-copy-mask${project.name.length > 11 ? ' is-multiline-title' : ''}`}><h3>{project.name}</h3></div>
         <div className="work-copy-mask"><p>{project.description}</p></div>
         <a className="case-link" href={project.url} target="_blank" rel="noreferrer">VISIT WEBSITE <ArrowUpRight size={18} /></a>
       </div>
       <div className="work-media">
         <div className="work-media-clip">
-          <img src={project.image} alt={`${project.name} responsive project mockup`} loading={index === 0 ? 'eager' : 'lazy'} />
+          <img
+            src={imageVariant(project.image, 1280)}
+            srcSet={`${imageVariant(project.image, 640)} 640w, ${imageVariant(project.image, 1280)} 1280w, ${imageVariant(project.image, 1920)} 1920w`}
+            sizes="(max-width: 640px) calc(100vw - 42px), (max-width: 900px) 48vw, 56vw"
+            alt={`${project.name} responsive project mockup`}
+            loading="eager"
+            decoding="async"
+            fetchPriority={index === 0 ? 'high' : 'auto'}
+          />
         </div>
       </div>
     </article>
