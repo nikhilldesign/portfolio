@@ -389,6 +389,7 @@ function Tools() {
     const cards = cardRefs.current.filter((card): card is HTMLDivElement => Boolean(card))
     if (!element || !cards.length || prefersReducedMotion()) return
     const isCompactTools = window.matchMedia('(max-width: 900px)').matches
+    const isMobileTools = window.matchMedia('(max-width: 640px)').matches
     if (!isCompactTools && window.matchMedia('(pointer: coarse)').matches) return
 
     const engine = Engine.create({ gravity: { x: 0, y: 1, scale: .00092 } })
@@ -441,6 +442,11 @@ function Tools() {
       mouseup: EventListener
     }
     mouse.element.removeEventListener('wheel', mouseEvents.mousewheel)
+    if (isMobileTools) {
+      mouse.element.removeEventListener('touchmove', mouseEvents.mousemove)
+      mouse.element.removeEventListener('touchstart', mouseEvents.mousedown)
+      mouse.element.removeEventListener('touchend', mouseEvents.mouseup)
+    }
 
     let frame = 0
     let running = false
