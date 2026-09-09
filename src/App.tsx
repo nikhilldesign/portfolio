@@ -206,7 +206,7 @@ function Hero() {
         </h1>
       </div>
       <div className="hero-bottom">
-        <p className="intro">UI/UX DESIGNER. I create intuitive, engaging digital experiences through thoughtful UX and clean visual design.</p>
+        <p className="intro"><strong>UI/UX DESIGNER</strong>. I create intuitive, engaging digital experiences through thoughtful UX and clean visual design.</p>
       </div>
     </section>
   )
