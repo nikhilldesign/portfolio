@@ -25,7 +25,7 @@ const projects = [
   },
   {
     number: '02',
-    name: 'VPF',
+    name: 'Villoo Poonawalla Foundation',
     description: 'Philanthropic foundation supporting education, healthcare, sports, inclusivity, sanitation, and green spaces to create meaningful social impact.',
     category: 'Social Impact',
     year: '2025',
@@ -310,21 +310,23 @@ function Process() {
     const ctx = gsap.context(() => {
       const fractions = gsap.utils.toArray<HTMLElement>('.process-fraction')
       const steps = gsap.utils.toArray<HTMLElement>('.process-step')
-      const transitionDuration = .72
+      const transitionDuration = .82
+      const transitionPhase = transitionDuration / 2
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: root.current,
           start: 'top top',
           end: `+=${Math.round((220 / 3) * stepCount)}%`,
           pin: true,
-          scrub: .75,
+          scrub: .4,
+          invalidateOnRefresh: true,
           onUpdate: (self) => setActive(Math.min(stepCount - 1, Math.floor(self.progress * stepCount))),
         },
       })
 
-      gsap.set([...fractions, ...steps], { autoAlpha: 0, zIndex: 0 })
-      gsap.set(fractions[0], { autoAlpha: 1, y: 0, zIndex: 1 })
-      gsap.set(steps[0], { autoAlpha: 1, y: 0, zIndex: 1 })
+      gsap.set([...fractions, ...steps], { opacity: 1, visibility: 'hidden', zIndex: 0 })
+      gsap.set(fractions[0], { visibility: 'visible', y: 0, zIndex: 1 })
+      gsap.set(steps[0], { visibility: 'visible', y: 0, zIndex: 1 })
 
       timeline.to('.process-ring', { rotation: 120 * (stepCount - 1), duration: stepCount, ease: 'none' }, 0)
       timeline.to('.process-orbit', { rotation: -120 * stepCount, duration: stepCount, ease: 'none' }, 0)
@@ -337,12 +339,12 @@ function Process() {
         const previousStep = steps[index - 1]
         const currentStep = steps[index]
 
-        timeline.set([currentFraction, currentStep], { zIndex: 2 }, position)
-        timeline.to(previousFraction, { autoAlpha: 0, y: -28, duration: transitionDuration, ease: 'power1.inOut' }, position)
-        timeline.fromTo(currentFraction, { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: transitionDuration, ease: 'power1.inOut', immediateRender: false }, position)
-        timeline.to(previousStep, { autoAlpha: 0, y: -42, duration: transitionDuration, ease: 'power1.inOut' }, position)
-        timeline.fromTo(currentStep, { autoAlpha: 0, y: 42 }, { autoAlpha: 1, y: 0, duration: transitionDuration, ease: 'power1.inOut', immediateRender: false }, position)
-        timeline.set([previousFraction, previousStep], { zIndex: 0 }, position + transitionDuration)
+        timeline.to(previousFraction, { y: -28, duration: transitionPhase, ease: 'power1.in' }, position)
+        timeline.to(previousStep, { y: -42, duration: transitionPhase, ease: 'power1.in' }, position)
+        timeline.set([previousFraction, previousStep], { visibility: 'hidden', zIndex: 0 }, position + transitionPhase)
+        timeline.set([currentFraction, currentStep], { visibility: 'visible', zIndex: 2 }, position + transitionPhase)
+        timeline.fromTo(currentFraction, { y: 28 }, { y: 0, duration: transitionPhase, ease: 'power1.out', immediateRender: false }, position + transitionPhase)
+        timeline.fromTo(currentStep, { y: 42 }, { y: 0, duration: transitionPhase, ease: 'power1.out', immediateRender: false }, position + transitionPhase)
       }
     }, root)
     return () => ctx.revert()
