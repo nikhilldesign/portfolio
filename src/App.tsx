@@ -155,7 +155,7 @@ function Navbar() {
         <a href="#process">PROCESS</a>
         <a href="#contact">CONTACT</a>
       </nav>
-      <a className="nav-resume" href={assetUrl('UX_Resume.pdf')} download>DOWNLOAD RESUME <Download size={13} /></a>
+      <a className="nav-resume" href={assetUrl('UX_Resume.pdf')} download="nikhil_UIUX_resume.pdf">DOWNLOAD RESUME <Download size={13} /></a>
     </header>
   )
 }
