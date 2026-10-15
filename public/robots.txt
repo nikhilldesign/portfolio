@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nikhilldesign.github.io/portfolio/sitemap.xml
