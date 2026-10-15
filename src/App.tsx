@@ -543,7 +543,7 @@ function Contact() {
       </div>
       <footer>
         <span>© 2026 NIKHIL PATIL</span>
-        <div><a href="mailto:nikhilcpatil07@gmail.com">EMAIL</a><a href="https://www.linkedin.com/in/nikhil-patil-62a284256/" target="_blank" rel="noreferrer">LINKEDIN</a><a href={assetUrl('UX_Resume.pdf')} target="_blank">RESUME</a></div>
+        <div><a href="mailto:nikhilcpatil07@gmail.com">EMAIL</a><a href="https://www.linkedin.com/in/nikhil-patil-62a284256/" target="_blank" rel="noreferrer">LINKEDIN</a><a href="https://www.behance.net/nikhilpatil07" target="_blank" rel="noreferrer">BEHANCE</a><a href={assetUrl('UX_Resume.pdf')} target="_blank">RESUME</a></div>
         <a href="#top">BACK TO TOP ↑</a>
       </footer>
     </section>
